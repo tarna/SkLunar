@@ -1,0 +1,11 @@
+name: SkLunar
+version: 0.1.0
+main: dev.tarna.sklunar.SkLunar
+description: A Skript Addon to integrate Lunar Client features into Skript.
+author: Tarna
+website: https://github.com/tarna/SkLunar
+api-version: '1.13'
+
+depend:
+  - Skript
+  - Apollo-Bukkit
