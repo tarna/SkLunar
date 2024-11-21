@@ -56,10 +56,6 @@ class EffDisplayBeam : Effect() {
             .location(location.toApolloBlockLocation())
             .build()
         )
-        println("Color: $color")
-        println("Location: ${location.x}, ${location.y}, ${location.z}, ${location.world.name}")
-        println("ID: $id")
-        println("Players: ${players.joinToString(", ") { it.name }}")
     }
 
     override fun toString(event: Event?, debug: Boolean): String {
