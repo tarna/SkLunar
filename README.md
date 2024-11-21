@@ -34,11 +34,11 @@ This addon is still in development so not all features of Apollo are supported y
     - [ ] Remove a custom cooldown from players
     - [ ] Reset all cooldowns for a player
 
-- [ ] [Entity](https://lunarclient.dev/apollo/developers/modules/entity)
-    - [ ] Override a sheep's rainbow state
-    - [ ] Reset a sheep's rainbow state
-    - [ ] Override an entity's flip state
-    - [ ] Reset an entity's flip state
+- [x] [Entity](https://lunarclient.dev/apollo/developers/modules/entity)
+    - [x] Override a sheep's rainbow state
+    - [x] Reset a sheep's rainbow state
+    - [x] Override an entity's flip state
+    - [x] Reset an entity's flip state
 
 - [ ] [Glint](https://lunarclient.dev/apollo/developers/modules/glint)
     - [ ] Add a glint to unenchanted items
@@ -69,9 +69,9 @@ This addon is still in development so not all features of Apollo are supported y
     - [x] Display a custom nametag with multiple lines to players
     - [x] Remove a custom nametag from players
 
-- [ ] [Nick Hider](https://lunarclient.dev/apollo/developers/modules/nickhider)
-    - [ ] Override a player's nick
-    - [ ] Reset a player's nick
+- [x] [Nick Hider](https://lunarclient.dev/apollo/developers/modules/nickhider)
+    - [x] Override a player's nick
+    - [x] Reset a player's nick
 
 - [ ] [Notification](https://lunarclient.dev/apollo/developers/modules/notification)
     - [ ] Display a custom notification with a resource image to players

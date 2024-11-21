@@ -19,6 +19,7 @@ dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.3-R0.1-SNAPSHOT")
     compileOnly("com.github.SkriptLang:Skript:2.9.4")
     compileOnly("com.lunarclient:apollo-api:1.1.6")
+    implementation("org.bstats:bstats-bukkit:3.0.2")
 }
 
 kotlin {
@@ -26,6 +27,10 @@ kotlin {
 }
 
 tasks {
+    shadowJar {
+        relocate("org.bstats", "dev.tarna.sklunar.bstats")
+    }
+
     runServer {
         minecraftVersion("1.21.3")
     }
