@@ -1,5 +1,5 @@
 name: SkLunar
-version: 0.2.0
+version: '@version@'
 main: dev.tarna.sklunar.SkLunar
 description: A Skript Addon to integrate Lunar Client features into Skript.
 author: Tarna

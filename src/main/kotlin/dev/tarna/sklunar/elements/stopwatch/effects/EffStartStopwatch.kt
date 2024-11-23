@@ -1,28 +1,35 @@
 package dev.tarna.sklunar.elements.stopwatch.effects
 
 import ch.njol.skript.Skript
+import ch.njol.skript.doc.Description
+import ch.njol.skript.doc.Examples
+import ch.njol.skript.doc.Name
+import ch.njol.skript.doc.Since
 import ch.njol.skript.lang.Effect
 import ch.njol.skript.lang.Expression
 import ch.njol.skript.lang.SkriptParser.ParseResult
 import ch.njol.util.Kleenean
 import com.lunarclient.apollo.Apollo
 import com.lunarclient.apollo.module.stopwatch.StopwatchModule
+import com.lunarclient.apollo.player.ApolloPlayer
 import com.lunarclient.apollo.recipients.Recipients
-import dev.tarna.sklunar.api.util.toApollo
-import org.bukkit.entity.Player
 import org.bukkit.event.Event
 
+@Name("Start Stopwatch")
+@Description("Start the Lunar stopwatch for a player")
+@Examples("start the lunar stopwatch for player")
+@Since("0.1.0")
 class EffStartStopwatch : Effect() {
     companion object {
         init {
-            Skript.registerEffect(EffStartStopwatch::class.java, "start [the] [lunar] stopwatch for %players%")
+            Skript.registerEffect(EffStartStopwatch::class.java, "start [the] [lunar] stopwatch for %apolloplayers%")
         }
     }
 
-    lateinit var players: Expression<Player>
+    lateinit var players: Expression<ApolloPlayer>
 
     override fun init(exprs: Array<out Expression<*>>, matchedPattern: Int, isDelayed: Kleenean, parseResult: ParseResult): Boolean {
-        players = exprs[0] as Expression<Player>
+        players = exprs[0] as Expression<ApolloPlayer>
         return true
     }
 
@@ -31,7 +38,7 @@ class EffStartStopwatch : Effect() {
         if (players.isEmpty()) return
 
         val stopwatchModule = Apollo.getModuleManager().getModule(StopwatchModule::class.java)
-        stopwatchModule.startStopwatch(Recipients.of(players.toList().toApollo()))
+        stopwatchModule.startStopwatch(Recipients.of(players.toList()))
     }
 
     override fun toString(event: Event?, debug: Boolean): String {

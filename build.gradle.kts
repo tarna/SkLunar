@@ -1,3 +1,5 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
 plugins {
     kotlin("jvm") version "2.0.20"
     id("com.gradleup.shadow") version "8.3.5"
@@ -5,7 +7,7 @@ plugins {
 }
 
 group = "dev.tarna"
-version = "0.2.0"
+version = "0.3.0"
 
 repositories {
     mavenCentral()
@@ -29,6 +31,12 @@ kotlin {
 tasks {
     shadowJar {
         relocate("org.bstats", "dev.tarna.sklunar.bstats")
+    }
+
+    processResources {
+        filesNotMatching("**/*.png") {
+            filter<ReplaceTokens>("tokens" to mapOf("version" to project.version))
+        }
     }
 
     runServer {

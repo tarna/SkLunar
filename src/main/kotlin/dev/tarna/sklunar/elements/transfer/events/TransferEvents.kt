@@ -1,4 +1,4 @@
-package dev.tarna.sklunar.elements.transfer
+package dev.tarna.sklunar.elements.transfer.events
 
 import ch.njol.skript.Skript
 import ch.njol.skript.lang.util.SimpleEvent
@@ -16,6 +16,12 @@ class TransferEvents : SimpleEvent() {
                 BukkitApolloTransferAcceptEvent::class.java,
                 "[lunar|apollo] transfer player accept",
             )
+                .description("Called when a player accepts a transfer request")
+                .examples(
+                    "on lunar transfer player accept:",
+                    "\tsend \"%player% has accepted the transfer request!\" to console"
+                )
+                .since("0.1.0")
 
             EventValues.registerEventValue(
                 BukkitApolloTransferAcceptEvent::class.java,
@@ -41,6 +47,12 @@ class TransferEvents : SimpleEvent() {
                 BukkitApolloTransferAcceptEvent::class.java,
                 "[lunar|apollo] transfer player (reject|deny)",
             )
+                .description("Called when a player rejects a transfer request")
+                .examples(
+                    "on lunar transfer player reject:",
+                    "\tsend \"%player% has rejected the transfer request!\" to console"
+                )
+                .since("0.1.0")
 
             EventValues.registerEventValue(
                 BukkitApolloTransferAcceptEvent::class.java,

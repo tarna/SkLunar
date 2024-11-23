@@ -49,6 +49,7 @@ class AddonLoader(val plugin: SkLunar) {
 
     private fun loadSkriptElements() {
         addon = Skript.registerAddon(plugin)
+        addon.languageFileDirectory = "lang"
 
         val elementCountBefore = SkriptUtils.getElementCount()
 

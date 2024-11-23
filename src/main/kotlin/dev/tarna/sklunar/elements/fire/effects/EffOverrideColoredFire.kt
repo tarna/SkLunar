@@ -1,6 +1,10 @@
 package dev.tarna.sklunar.elements.fire.effects
 
 import ch.njol.skript.Skript
+import ch.njol.skript.doc.Description
+import ch.njol.skript.doc.Examples
+import ch.njol.skript.doc.Name
+import ch.njol.skript.doc.Since
 import ch.njol.skript.lang.Effect
 import ch.njol.skript.lang.Expression
 import ch.njol.skript.lang.SkriptParser.ParseResult
@@ -8,27 +12,30 @@ import ch.njol.skript.util.SkriptColor
 import ch.njol.util.Kleenean
 import com.lunarclient.apollo.Apollo
 import com.lunarclient.apollo.module.coloredfire.ColoredFireModule
+import com.lunarclient.apollo.player.ApolloPlayer
 import com.lunarclient.apollo.recipients.Recipients
-import dev.tarna.sklunar.api.util.toApollo
-import org.bukkit.entity.Player
 import org.bukkit.event.Event
 import java.awt.Color
 
+@Name("Override Colored Fire")
+@Description("Override the colored fire of a player")
+@Examples("set the colored fire of player to red")
+@Since("0.1.0")
 class EffOverrideColoredFire : Effect() {
     companion object {
         init {
-            Skript.registerEffect(EffOverrideColoredFire::class.java, "(override|set) [the] colored fire of %players% to %color% [for %players%]")
+            Skript.registerEffect(EffOverrideColoredFire::class.java, "(override|set) [the] colored fire of %apolloplayers% to %color% [for %apolloplayers%]")
         }
     }
 
-    lateinit var players: Expression<Player>
+    lateinit var players: Expression<ApolloPlayer>
     lateinit var color: Expression<SkriptColor>
-    lateinit var targetPlayers: Expression<Player>
+    lateinit var targetPlayers: Expression<ApolloPlayer>
 
     override fun init(exprs: Array<out Expression<*>>, matchedPattern: Int, isDelayed: Kleenean, parseResult: ParseResult): Boolean {
-        players = exprs[0] as Expression<Player>
+        players = exprs[0] as Expression<ApolloPlayer>
         color = exprs[1] as Expression<SkriptColor>
-        targetPlayers = exprs[2] as Expression<Player>
+        targetPlayers = exprs[2] as Expression<ApolloPlayer>
         return true
     }
 
@@ -36,7 +43,7 @@ class EffOverrideColoredFire : Effect() {
         val players = players.getArray(event) ?: return
         val color = color.getSingle(event) ?: return
         val targetPlayers = targetPlayers.getArray(event)
-        val targetRecipients = if (targetPlayers != null) Recipients.of(targetPlayers.toList().toApollo()) else Recipients.ofEveryone()
+        val targetRecipients = if (targetPlayers != null) Recipients.of(targetPlayers.toList()) else Recipients.ofEveryone()
 
         val fireModule = Apollo.getModuleManager().getModule(ColoredFireModule::class.java)
         for (player in players) {

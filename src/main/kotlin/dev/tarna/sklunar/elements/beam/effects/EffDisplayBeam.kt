@@ -1,39 +1,45 @@
 package dev.tarna.sklunar.elements.beam.effects
 
 import ch.njol.skript.Skript
+import ch.njol.skript.doc.Description
+import ch.njol.skript.doc.Examples
+import ch.njol.skript.doc.Name
+import ch.njol.skript.doc.Since
 import ch.njol.skript.lang.Effect
 import ch.njol.skript.lang.Expression
 import ch.njol.skript.lang.SkriptParser.ParseResult
 import ch.njol.skript.util.SkriptColor
 import ch.njol.util.Kleenean
 import com.lunarclient.apollo.Apollo
+import com.lunarclient.apollo.common.location.ApolloBlockLocation
 import com.lunarclient.apollo.module.beam.Beam
 import com.lunarclient.apollo.module.beam.BeamModule
+import com.lunarclient.apollo.player.ApolloPlayer
 import com.lunarclient.apollo.recipients.Recipients
-import dev.tarna.sklunar.api.util.toApollo
-import dev.tarna.sklunar.api.util.toApolloBlockLocation
-import org.bukkit.Location
-import org.bukkit.entity.Player
 import org.bukkit.event.Event
 import java.awt.Color
 
+@Name("Display Beam")
+@Description("Display a beam at a location to a player")
+@Examples("create a red beam at player's location with id \"example\" to player")
+@Since("0.1.0")
 class EffDisplayBeam : Effect() {
     companion object {
         init {
-            Skript.registerEffect(EffDisplayBeam::class.java, "(create|display) [a] %color% beam at %location% with id %string% to %players%")
+            Skript.registerEffect(EffDisplayBeam::class.java, "(create|display) [a] %color% beam at %apolloblocklocation% with id %string% to %apolloplayers%")
         }
     }
 
     lateinit var color: Expression<SkriptColor>
-    lateinit var location: Expression<Location>
+    lateinit var location: Expression<ApolloBlockLocation>
     lateinit var id: Expression<String>
-    lateinit var players: Expression<Player>
+    lateinit var players: Expression<ApolloPlayer>
 
     override fun init(exprs: Array<out Expression<*>>, matchedPattern: Int, isDelayed: Kleenean, parseResult: ParseResult): Boolean {
         color = exprs[0] as Expression<SkriptColor>
-        location = exprs[1] as Expression<Location>
+        location = exprs[1] as Expression<ApolloBlockLocation>
         id = exprs[2] as Expression<String>
-        players = exprs[3] as Expression<Player>
+        players = exprs[3] as Expression<ApolloPlayer>
         return true
     }
 
@@ -45,7 +51,7 @@ class EffDisplayBeam : Effect() {
         if (players.isEmpty()) return
 
         val beamModule = Apollo.getModuleManager().getModule(BeamModule::class.java)
-        val apolloRecipients = Recipients.of(players.toList().toApollo())
+        val apolloRecipients = Recipients.of(players.toList())
         beamModule.displayBeam(apolloRecipients, Beam.builder()
             .id(id)
             .color(Color(
@@ -53,7 +59,7 @@ class EffDisplayBeam : Effect() {
                 color.asBukkitColor().green,
                 color.asBukkitColor().blue
             ))
-            .location(location.toApolloBlockLocation())
+            .location(location)
             .build()
         )
     }
