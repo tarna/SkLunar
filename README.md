@@ -54,11 +54,11 @@ This addon is still in development so not all features of Apollo are supported y
     - [ ] Remove a hologram from players
     - [ ] Reset all holograms for a player
 
-- [ ] [Limb](https://lunarclient.dev/apollo/developers/modules/limb)
-    - [ ] Hide an armor piece from a player
-    - [ ] Reset a hidden armor piece from a player
-    - [ ] Hide a body part from a player
-    - [ ] Reset a hidden body part from a player
+- [x] [Limb](https://lunarclient.dev/apollo/developers/modules/limb)
+    - [x] Hide an armor piece from a player
+    - [x] Reset a hidden armor piece from a player
+    - [x] Hide a body part from a player
+    - [x] Reset a hidden body part from a player
 
 - [ ] [Mod Settings](https://lunarclient.dev/apollo/developers/modules/modsetting)
     - [ ] Disable a mod for a player
