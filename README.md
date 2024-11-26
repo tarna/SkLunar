@@ -28,11 +28,11 @@ This addon is still in development so not all features of Apollo are supported y
 - [ ] [Combat](https://lunarclient.dev/apollo/developers/modules/combat)
     - [ ] Ability to disable the 1.8 miss penalty
 
-- [ ] [Cooldown](https://lunarclient.dev/apollo/developers/modules/cooldown)
-    - [ ] Display a custom cooldown with an item
-    - [ ] Display a custom cooldown with a custom resource image
-    - [ ] Remove a custom cooldown from players
-    - [ ] Reset all cooldowns for a player
+- [x] [Cooldown](https://lunarclient.dev/apollo/developers/modules/cooldown)
+    - [x] Display a custom cooldown with an item
+    - [x] Display a custom cooldown with a custom resource image
+    - [x] Remove a custom cooldown from players
+    - [x] Reset all cooldowns for a player
 
 - [x] [Entity](https://lunarclient.dev/apollo/developers/modules/entity)
     - [x] Override a sheep's rainbow state
