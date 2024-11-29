@@ -5,6 +5,10 @@
 - [Skript](https://github.com/SkriptLang/Skript)
 - [Apollo](https://lunarclient.dev/apollo/downloads)
 
+## Download
+[<img src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/available/modrinth_vector.svg">](https://modrinth.com/plugin/sklunar)
+[<img src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/available/github_vector.svg">](https://github.com/tarna/SkLunar/releases)
+
 ## Elements
 This addon is still in development so not all features of Apollo are supported yet. Below is a list of all the elements that are currently supported.
 
