@@ -24,25 +24,25 @@ import java.awt.Color
 class EffOverrideColoredFire : Effect() {
     companion object {
         init {
-            Skript.registerEffect(EffOverrideColoredFire::class.java, "(override|set) [the] colored fire of %apolloplayers% to %color% [for %apolloplayers%]")
+            Skript.registerEffect(EffOverrideColoredFire::class.java, "(override|set) [the] colored fire of %apolloplayers% to %color% [for %-apolloplayers%]")
         }
     }
 
     lateinit var players: Expression<ApolloPlayer>
     lateinit var color: Expression<SkriptColor>
-    lateinit var targetPlayers: Expression<ApolloPlayer>
+    var targetPlayers: Expression<ApolloPlayer>? = null
 
     override fun init(exprs: Array<out Expression<*>>, matchedPattern: Int, isDelayed: Kleenean, parseResult: ParseResult): Boolean {
         players = exprs[0] as Expression<ApolloPlayer>
         color = exprs[1] as Expression<SkriptColor>
-        targetPlayers = exprs[2] as Expression<ApolloPlayer>
+        targetPlayers = exprs[2] as Expression<ApolloPlayer>?
         return true
     }
 
     override fun execute(event: Event) {
         val players = players.getArray(event) ?: return
         val color = color.getSingle(event) ?: return
-        val targetPlayers = targetPlayers.getArray(event)
+        val targetPlayers = targetPlayers?.getArray(event)
         val targetRecipients = if (targetPlayers != null) Recipients.of(targetPlayers.toList()) else Recipients.ofEveryone()
 
         val fireModule = Apollo.getModuleManager().getModule(ColoredFireModule::class.java)
@@ -60,6 +60,6 @@ class EffOverrideColoredFire : Effect() {
     }
 
     override fun toString(e: Event?, debug: Boolean): String {
-        return "override the colored fire of ${players.toString(e, debug)} to ${color.toString(e, debug)} for ${targetPlayers.toString(e, debug)}"
+        return "override the colored fire of ${players.toString(e, debug)} to ${color.toString(e, debug)} for ${targetPlayers?.toString(e, debug)}"
     }
 }
