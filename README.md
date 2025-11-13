@@ -12,6 +12,10 @@
 ## Elements
 This addon is still in development so not all features of Apollo are supported yet. Below is a list of all the elements that are currently supported.
 
+- [ ] [Auto Text Hotkey](https://lunarclient.dev/apollo/developers/modules/autotexthotkey)
+    - [ ] Prevent specific commands and chat messages from being used as hotkeys
+    - [ ] Prevent all chat messages from being used as hotkeys
+
 - [x] [Beam](https://lunarclient.dev/apollo/developers/modules/beam)
     - [x] Display a colored beam to players at a location
     - [x] Remove a beam from players
@@ -58,6 +62,14 @@ This addon is still in development so not all features of Apollo are supported y
     - [ ] Remove a hologram from players
     - [ ] Reset all holograms for a player
 
+- [ ] [Inventory](https://lunarclient.dev/apollo/developers/modules/inventory)
+    - [ ] Make items unclickable
+    - [ ] Open URLs
+    - [ ] Suggest and run commands
+    - [ ] Copy to clipboard
+    - [ ] Hide item tooltips
+    - [ ] Hide slot highlighting
+
 - [x] [Limb](https://lunarclient.dev/apollo/developers/modules/limb)
     - [x] Hide an armor piece from a player
     - [x] Reset a hidden armor piece from a player
@@ -81,6 +93,12 @@ This addon is still in development so not all features of Apollo are supported y
     - [ ] Display a custom notification with a resource image to players
     - [ ] Reset all custom notifications for a player
 
+- [ ] [Packet Enrichment](https://lunarclient.dev/apollo/developers/modules/packetenrichment)
+    - [ ] Player chat close event
+    - [ ] Player chat open event
+    - [ ] Player attack event
+    - [ ] Player use item event
+
 - [ ] [Rich Presence](https://lunarclient.dev/apollo/developers/modules/richpresence)
     - [ ] Override a player's rich presence
     - [ ] Reset a player's rich presence
@@ -103,6 +121,10 @@ This addon is still in development so not all features of Apollo are supported y
     - [ ] Create a Lunar team
     - [ ] Add and remove players from a team
     - [ ] Create custom team markers
+
+- [ ] [Tebex](https://lunarclient.dev/apollo/developers/modules/tebex)
+    - [ ] Check if a player supports Tebex overlays
+    - [ ] Display a Tebex overlay to players
 
 - [ ] [Title](https://lunarclient.dev/apollo/developers/modules/title)
     - [ ] Display a custom title to players
