@@ -8,6 +8,11 @@ class BukkitApolloRegisterPlayerEvent(player: Player) : PlayerEvent(player) {
     companion object {
         @JvmStatic
         val HANDLERS = HandlerList()
+
+        @JvmStatic
+        fun getHandlerList(): HandlerList {
+            return HANDLERS
+        }
     }
 
     override fun getHandlers(): HandlerList {

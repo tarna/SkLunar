@@ -8,6 +8,11 @@ class BukkitApolloTransferRejectEvent(player: Player, val server: String) : Play
     companion object {
         @JvmStatic
         val HANDLERS = HandlerList()
+
+        @JvmStatic
+        fun getHandlerList(): HandlerList {
+            return HANDLERS
+        }
     }
 
     override fun getHandlers(): HandlerList {
