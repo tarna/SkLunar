@@ -33,8 +33,8 @@ This addon is still in development so not all features of Apollo are supported y
 - [x] [Colored Fire](https://lunarclient.dev/apollo/developers/modules/coloredfire)
     - [x] Override the color of a player's fire
 
-- [ ] [Combat](https://lunarclient.dev/apollo/developers/modules/combat)
-    - [ ] Ability to disable the 1.8 miss penalty
+- [x] [Combat](https://lunarclient.dev/apollo/developers/modules/combat)
+    - [x] Ability to disable the 1.8 miss penalty
 
 - [x] [Cooldown](https://lunarclient.dev/apollo/developers/modules/cooldown)
     - [x] Display a custom cooldown with an item
