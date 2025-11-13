@@ -122,9 +122,9 @@ This addon is still in development so not all features of Apollo are supported y
     - [ ] Add and remove players from a team
     - [ ] Create custom team markers
 
-- [ ] [Tebex](https://lunarclient.dev/apollo/developers/modules/tebex)
-    - [ ] Check if a player supports Tebex overlays
-    - [ ] Display a Tebex overlay to players
+- [x] [Tebex](https://lunarclient.dev/apollo/developers/modules/tebex)
+    - [x] Check if a player supports Tebex overlays
+    - [x] Display a Tebex overlay to players
 
 - [ ] [Title](https://lunarclient.dev/apollo/developers/modules/title)
     - [ ] Display a custom title to players
