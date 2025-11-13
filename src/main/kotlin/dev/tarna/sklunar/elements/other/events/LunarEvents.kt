@@ -3,12 +3,11 @@ package dev.tarna.sklunar.elements.other.events
 import ch.njol.skript.Skript
 import ch.njol.skript.lang.util.SimpleEvent
 import ch.njol.skript.registrations.EventValues
-import ch.njol.skript.util.Getter
+import dev.tarna.sklunar.api.lunar.events.BukkitApolloChatCloseEvent
+import dev.tarna.sklunar.api.lunar.events.BukkitApolloChatOpenEvent
 import dev.tarna.sklunar.api.lunar.events.BukkitApolloRegisterPlayerEvent
 import dev.tarna.sklunar.api.lunar.events.BukkitApolloUnregisterPlayerEvent
 import org.bukkit.entity.Player
-
-
 
 class LunarEvents : SimpleEvent() {
     companion object {
@@ -30,11 +29,8 @@ class LunarEvents : SimpleEvent() {
             EventValues.registerEventValue(
                 BukkitApolloRegisterPlayerEvent::class.java,
                 Player::class.java,
-                object : Getter<Player, BukkitApolloRegisterPlayerEvent>() {
-                    override fun get(event: BukkitApolloRegisterPlayerEvent): Player {
-                        return event.player
-                    }
-                }, EventValues.TIME_NOW)
+                BukkitApolloRegisterPlayerEvent::getPlayer
+            )
 
             Skript.registerEvent(
                 "Apollo Unregister Player",
@@ -53,11 +49,46 @@ class LunarEvents : SimpleEvent() {
             EventValues.registerEventValue(
                 BukkitApolloUnregisterPlayerEvent::class.java,
                 Player::class.java,
-                object : Getter<Player, BukkitApolloUnregisterPlayerEvent>() {
-                    override fun get(event: BukkitApolloUnregisterPlayerEvent): Player {
-                        return event.player
-                    }
-            }, EventValues.TIME_NOW)
+                BukkitApolloUnregisterPlayerEvent::getPlayer
+            )
+
+            Skript.registerEvent(
+                "Chat Open",
+                LunarEvents::class.java,
+                BukkitApolloChatOpenEvent::class.java,
+                "[lunar|apollo] chat open"
+            )
+                .description("Called when a player opens the chat using Lunar Client")
+                .examples(
+                    "on lunar chat open:",
+                    "\tsend \"You opened the chat!\" to player"
+                )
+                .since("0.5.0")
+
+            EventValues.registerEventValue(
+                BukkitApolloChatOpenEvent::class.java,
+                Player::class.java,
+                BukkitApolloChatOpenEvent::getPlayer
+            )
+
+            Skript.registerEvent(
+                "Chat Close",
+                LunarEvents::class.java,
+                BukkitApolloChatCloseEvent::class.java,
+                "[lunar|apollo] chat close"
+            )
+                .description("Called when a player closes the chat using Lunar Client")
+                .examples(
+                    "on lunar chat close:",
+                    "\tsend \"You closed the chat!\" to player"
+                )
+                .since("0.5.0")
+
+            EventValues.registerEventValue(
+                BukkitApolloChatCloseEvent::class.java,
+                Player::class.java,
+                BukkitApolloChatCloseEvent::getPlayer
+            )
         }
     }
 }
