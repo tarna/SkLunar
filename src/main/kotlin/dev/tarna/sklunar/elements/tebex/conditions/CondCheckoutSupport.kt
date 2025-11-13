@@ -1,6 +1,10 @@
 package dev.tarna.sklunar.elements.tebex.conditions
 
 import ch.njol.skript.Skript
+import ch.njol.skript.doc.Description
+import ch.njol.skript.doc.Examples
+import ch.njol.skript.doc.Name
+import ch.njol.skript.doc.Since
 import ch.njol.skript.lang.Condition
 import ch.njol.skript.lang.Expression
 import ch.njol.skript.lang.SkriptParser.ParseResult
@@ -9,6 +13,10 @@ import com.lunarclient.apollo.module.tebex.TebexEmbeddedCheckoutSupport
 import com.lunarclient.apollo.player.ApolloPlayer
 import org.bukkit.event.Event
 
+@Name("Tebex Checkout Support")
+@Description("Check if a player supports a specific Tebex embedded checkout support option.")
+@Examples("send \"You have Tebex checkout support!\" to player if player has tebex checkout support for overlay")
+@Since("0.5.0")
 class CondCheckoutSupport : Condition() {
     companion object {
         init {
